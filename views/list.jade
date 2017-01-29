@@ -1,0 +1,64 @@
+extends layout
+
+block content
+	.content.column.is-10
+		.title.is-2 Overview
+		|       
+		.nav.menu
+			.container
+				.nav-left#nav
+					a.nav-item.is-tab(href="/")
+						span.icon-btn
+							i.fa.fa-bars
+					|             
+					a.nav-item.is-tab.is-active(href="/books/new")
+						span.icon-btn
+							i.fa.fa-plus
+					|             
+					a.nav-item.is-tab(href="/admin/login")
+						span.icon-btn.thin
+							i.fa.fa-lock
+					|             
+					a.nav-item.is-tab
+						span.icon-btn
+							i.fa.fa-trash
+					|             
+					.nav-item.is-tab
+						strong 2 items selected
+				|           
+				.nav-right.is-hidden-mobile
+					a.nav-item.is-tab Name
+					|             
+					a.nav-item.is-tab Size
+					|             
+					a.nav-item.is-tab Views
+					|             
+					a.nav-item
+						span.button.is-success Uploaded
+		.hero-body.content
+			h1 Your books
+			p Here is a list of your books.
+			p
+				a#delete.btn.btn-default(hrer="#") Delete
+				|  
+				a#add.btn.btn-default(href="/books/new") Add new
+			table.table
+				thead
+					tr
+							th
+							th Title
+							th Author
+							th Description
+				tbody
+					if !books.length
+						tr
+						td(colspan=4) You should add a contact
+					else
+						each book in books
+							tr
+								td
+									input(type="checkbox", id=book.id)
+								td
+									a(href="/books/#{book.id}") #{book.title}
+								td #{book.author}
+								td #{book.description}

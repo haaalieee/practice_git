@@ -1,0 +1,99 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Basic CRUD
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bulma.css')
+    link(rel="stylesheet", type='text/css', href='/stylesheets/materialize.min.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/aside.css')
+
+  nav#top.nav.is-dark.has-shadow
+    .container
+        .nav-left
+          a.nav-item(href='../index.html')
+            img(src='../images/bulma.png', alt='Description')
+        |       
+        span.nav-toggle
+          span
+          |         
+          span
+          |         
+          span
+        |       
+        .nav-right.nav-menu.is-hidden-tablet
+          a.nav-item.is-tab.is-active
+            | Dashboard
+          |         
+          a.nav-item.is-tab
+            | Activity
+          |         
+          a.nav-item.is-tab
+            | Timeline
+          |         
+          a.nav-item.is-tab
+            | Folders
+  .columns
+    aside.column.is-2.aside.hero.is-fullheight.is-hidden-mobile
+        div
+          .uploader.has-text-centered
+            a.button
+              i.fa.fa-upload
+          |         
+          .main
+            .title Main
+            |           
+            a.item.active(href='#')
+              span.icon
+                i.fa.fa-home
+              span.name Dashboard
+            |           
+            a.item(href='#')
+              span.icon
+                i.fa.fa-map-marker
+              span.name Activity
+            |           
+            a.item(href='#')
+              span.icon
+                i.fa.fa-th-list
+              span.name Timeline
+            |           
+            a.item(href='#')
+              span.icon
+                i.fa.fa-folder-o
+              span.name Folders
+            |     
+      body
+        block content
+  
+  
+        
+  //- footer.footer
+  //-   .container
+  //-     .has-text-centered
+  //-       p
+  //-         strong Bulma
+  //-         |  by 
+  //-         a(href='http://jgthms.com') Jeremy Thomas
+  //-         | . The source code is licensed
+  //-         |           
+  //-         a(href='http://opensource.org/licenses/mit-license.php') MIT
+  //-         | . The website content
+  //-         |           is licensed 
+  //-         a(href='http://creativecommons.org/licenses/by-nc-sa/4.0/') CC ANS 4.0
+  //-         | .
+  //-       |         
+  //-       p
+  //-         a.icon(href='https://github.com/jgthms/bulma')
+  //-           i.fa.fa-github
+
+
+
+  // Scripts
+  script(type='text/javascript', src='/javascripts/jquery.min.js')
+  script(type='text/javascript', src='/javascripts/materialize.min.js')
+  script(type='text/javascript', src='/javascripts/script.js')
+  

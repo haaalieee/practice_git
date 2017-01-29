@@ -1,0 +1,87 @@
+extends layout
+
+block content
+	.content.column.is-10
+		.title.is-2 Overview
+		|       
+		.nav.menu
+			.container
+				.nav-left#nav
+					a.nav-item.is-tab(href="/")
+						span.icon-btn
+							i.fa.fa-bars
+					|             
+					a.nav-item.is-tab.is-active(href="/books/new")
+						span.icon-btn
+							i.fa.fa-plus
+					|             
+					a.nav-item.is-tab
+						span.icon-btn.thin
+							i.fa.fa-lock
+					|             
+					a.nav-item.is-tab
+						span.icon-btn
+							i.fa.fa-trash
+					|             
+					.nav-item.is-tab
+						strong 2 items selected
+				|           
+				.nav-right.is-hidden-mobile
+					a.nav-item.is-tab Name
+					|             
+					a.nav-item.is-tab Size
+					|             
+					a.nav-item.is-tab Views
+					|             
+					a.nav-item
+						span.button.is-success Uploaded
+		.hero-body.content
+			form#myForm(role="form", method='post')
+
+				.container
+					.section.new-header
+						.container
+							.columns
+								.column
+									span.title.is-3.is-white Basic Crud
+									|           
+									span.title.is-3.has-text-muted &nbsp;|&nbsp;
+									|   
+									span.title.is-4.has-text-muted Edit Book
+						|  
+					.column.is-8.new-picture 
+						.box.content.boxColor
+							input.input#imageUrl(type='hidden', name='imageUrl' value="#{imageUrl}" )
+							h4.label Name:
+							p.control
+								input.input(type='text', placeholder='Book Title' name='title' value='#{book.title}' required)
+							| 
+							h4.label Author:              
+							p.control
+								input.input(type='text', placeholder='Author' name='author' value='#{book.author}' required)
+							|   
+							h4.label Year Published:                 
+							p.control
+								input.input(type='text', placeholder='Year Published ex: January 1, 2017' value='#{book.published}' name='published' required)
+							| 
+							h4.label Amazon Link:  
+							p.control
+								input.input(type='text', placeholder='Amazon Link' name='link' value='#{book.link}' required)
+							| 
+							h4.label Kindle Price:  
+							p.control
+								input.input(type='text', placeholder='Kindle Price' name='price' value='#{book.price}' required)
+							|  
+							hr
+							h4.label Book Description:  
+							p.control
+								textarea.textarea.is-hovered(placeholder='Book Description' name='description' value=book.description required)= book.description
+							|               
+							hr
+							|               
+							p.control
+								button.button.is-primary#submitButton(type='submit') Save 
+								|  &nbsp; &nbsp; &nbsp;
+								|                         
+								button.button.is-default#back Cancel
+

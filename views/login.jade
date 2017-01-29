@@ -1,0 +1,91 @@
+extends layout
+
+block content
+	.content.column.is-10
+		.title.is-2 Overview
+		|       
+		.nav.menu
+			.container
+				.nav-left#nav
+					a.nav-item.is-tab(href="/")
+						span.icon-btn
+							i.fa.fa-bars
+					|             
+					a.nav-item.is-tab.is-active(href="/books/new")
+						span.icon-btn
+							i.fa.fa-plus
+					|             
+					a.nav-item.is-tab
+						span.icon-btn.thin
+							i.fa.fa-lock
+					|             
+					a.nav-item.is-tab
+						span.icon-btn
+							i.fa.fa-trash
+					|             
+					.nav-item.is-tab
+						strong 2 items selected
+				|           
+				.nav-right.is-hidden-mobile
+					a.nav-item.is-tab Name
+					|             
+					a.nav-item.is-tab Size
+					|             
+					a.nav-item.is-tab Views
+					|             
+					a.nav-item
+						span.button.is-success Uploaded
+
+		section.hero.is-fullheight.loginBody
+			.hero-body
+				.container.loginCon
+					.columns.is-vcentered
+						.column.is-4.is-offset-4        
+							.box.boxColor.boxMar.z-depth-2.form-inverse
+								ul.tabs.tabbg
+									li.tab
+										a.white-text.active.fnt(href='#login') login
+									li.tab
+										a.white-text.fnt(href='#register') register
+								#login.col.s12.content  
+									.helloMsg
+										h3.teal-text Welcome back!
+									.row
+										.row
+											.input-field.col.s12
+												input#username.validate(type='email' name='username')
+												label(for='username' data-error="Oops! Invalid Email" data-success="Right") Email
+										.row
+											.input-field.col.s12
+												input#password.validate(type='password' name='password')
+												label(for='password' data-error="Invalid Password" data-success="Right") Password
+										p.control.regon
+											button.button.is-primary.is-medium.pddng#loginButton Login
+
+								#register.col.s12.content    
+									.helloMsg
+										h3.teal-text Nice to meet you
+										p.req Required fields are marked *
+									.row
+										form.col.s12(method='post' action='/admin/register')
+											.row
+												.input-field.col.s6
+													input#first_name.validate(type='text' name="first_name")
+													label(for='first_name') First Name *
+												.input-field.col.s6
+													input#last_name.validate(type='text' name="last_name")
+													label(for='last_name') Last Name *
+											.row
+												.input-field.col.s12
+													input#email.validate(type='email' name="username")
+													label(for='email' data-error="Oops! Invalid Email" data-success="Alright") Email *
+											.row
+												.input-field.col.s12
+													input#password.validate(type='password' name="password")
+													label(for='password' data-error="Invalid Password" data-success="Good") Password *
+											.row
+												.input-field.col.s12
+													input#confirm_password.validate(type='password')
+													label(for='confirm_password' data-error="Password didn't match" data-success="Nice") Confirm Password *
+											p.control.regon
+												button.button.is-primary.is-medium.pddng#register(type='submit') Register
